@@ -1,0 +1,32 @@
+{
+  "name": "stevenson-metrics",
+  "version": "0.0.1",
+  "description": "Package for the test repository for my Stevenson post-interview coding challenge",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "./webpack.config.mjs",
+    "watch": "./webpack.config.mjs --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trisys3/stevenson-metrics.git"
+  },
+  "author": "Sean Moran (sean_r_moran@msn.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/trisys3/stevenson-metrics/issues"
+  },
+  "homepage": "https://github.com/trisys3/stevenson-metrics#readme",
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "@vue/compiler-sfc": "^3.1.4",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.6",
+    "style-loader": "^3.0.0",
+    "vue": "^3.1.4",
+    "vue-loader": "^16.3.0",
+    "webpack": "^5.44.0"
+  }
+}
