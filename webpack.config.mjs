@@ -38,9 +38,17 @@ const config = {
 import {relative} from 'path';
 import webpack from 'webpack';
 import chalk from 'chalk';
-import {VueLoaderPlugin} from 'vue-loader';
+import {VueLoaderPlugin as VueLoader} from 'vue-loader';
 
-config.plugins.push(new VueLoaderPlugin());
+const {DefinePlugin} = webpack;
+
+const vueLoader = new VueLoader();
+const definer = new DefinePlugin({
+  __VUE_OPTIONS_API__: JSON.stringify(true),
+  __VUE_PROD_DEVTOOLS__: JSON.stringify(true),
+});
+
+config.plugins.push(vueLoader, definer);
 
 const {red, magenta, cyan, green, yellow} = chalk;
 
