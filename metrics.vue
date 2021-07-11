@@ -2,8 +2,8 @@
 .summary
   .summary-title Store Summary
   .summary-btns
-    .btn.summary-btn(class={active: this.summaryType === 'count'}) COUNT
-    .btn.summary-btn(class={active: this.summaryType !== 'count'}) PERCENT
+    .btn.summary-btn(v-bind='{ class: resultType === \'count\' && \'active\' || \'\' }', @click='resultType = \'count\'') COUNT
+    .btn.summary-btn(v-bind='{ class: resultType === \'percent\' && \'active\' || \'\' }', @click='resultType = \'percent\'') PERCENT
 </template>
 
 <script>
@@ -21,7 +21,7 @@ export default {
     this.results = parseMetrics(results);
   },
 
-  data: () => ({results: []}),
+  data: () => ({results: [], resultType: 'count'}),
 };
 
 function parseMetrics(resp) {
@@ -29,57 +29,48 @@ function parseMetrics(resp) {
 }
 </script>
 
-<style lang="scss">
-.metrics {
-  padding-inline: 5px;
-  padding-top: 20px;
-}
+<style lang="stylus">
+.metrics
+  padding-inline 5px
+  padding-top 20px
 </style>
 
-<style lang="scss" scoped>
-.btn {
-  background-color: white;
-  color: #4386ab;
-  cursor: pointer;
-  padding-inline: 12px;
-  height: 34px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+<style lang="stylus" scoped>
+.btn
+  background-color white
+  color #4386ab
+  cursor pointer
+  padding-inline 12px
+  height 34px
+  display flex
+  justify-content center
+  align-items center
 
-  &.active {
-    background-color: #4386ab;
-    color: white;
-  }
-}
+  &.active
+    background-color #4386ab
+    color white
 
-.summary {
-  margin-bottom: 20px;
-  display: flex;
-}
+.summary
+  margin-bottom 20px
+  display flex
 
-.summary-title {
+.summary-title
   font-weight: bold;
   margin-right: 40px;
   display: flex;
   align-items: center;
-}
 
-.summary-btns {
+.summary-btns
   display: flex;
-}
 
-.summary-btn {
-  width: 100px;
+.summary-btn
+  width 100px
 
-  &:first-child {
-   border-top-left-radius: 5px;
-   border-bottom-left-radius: 5px;
-  }
+  &:first-child
+   border-top-left-radius 5px
+   border-bottom-left-radius 5px
 
-  &:last-child {
-   border-top-right-radius: 5px;
-   border-bottom-right-radius: 5px;
-  }
-}
+  &:last-child
+   border-top-right-radius 5px
+   border-bottom-right-radius 5px
 </style>

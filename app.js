@@ -1,4 +1,4 @@
-import './app.scss';
+import './app.styl';
 
 import {createApp} from 'vue';
 import Metrics from './metrics';

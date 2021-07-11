@@ -32,8 +32,8 @@ const config = {
       test: /\.pug/,
       use: ['pug-plain-loader'],
     }, {
-      test: /\.scss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader'],
+      test: /\.styl/,
+      use: ['style-loader', 'css-loader', 'stylus-loader'],
     }],
   },
 };
