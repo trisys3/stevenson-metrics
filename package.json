@@ -25,6 +25,7 @@
     "axios": "^0.21.1",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
+    "pug-plain-loader": "^1.1.0",
     "style-loader": "^3.0.0",
     "vue": "^3.1.4",
     "vue-loader": "^16.3.0",

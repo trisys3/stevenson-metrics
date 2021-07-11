@@ -29,6 +29,9 @@ const config = {
       exclude: '/node_modules/',
       use: 'vue-loader',
     }, {
+      test: /\.pug/,
+      use: ['pug-plain-loader'],
+    }, {
       test: /\.css$/,
       use: ['style-loader', 'css-loader'],
     }],
