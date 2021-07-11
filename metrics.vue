@@ -1,27 +1,27 @@
-<template>
+<template lang="pug">
 </template>
 
 <script>
-  const metricsUrl = 'http://planogram.stevensoncompany.com/api/metrics/store';
+const metricsUrl = 'http://planogram.stevensoncompany.com/api/metrics/store';
 
-  import axios from 'axios';
+import axios from 'axios';
 
-  export default {
-    async beforeCreate() {
-      let results;
-      try {
-        ({data: {data: results}} = await axios(metricsUrl));
-      } catch {}
+export default {
+  async beforeCreate() {
+    let results;
+    try {
+      ({data: {data: results}} = await axios(metricsUrl));
+    } catch {}
 
-      this.results = parseMetrics(results);
-    },
+    this.results = parseMetrics(results);
+  },
 
-    data: () => ({results: []}),
-  };
+  data: () => ({results: []}),
+};
 
-  function parseMetrics(resp) {
-    return resp;
-  }
+function parseMetrics(resp) {
+  return resp;
+}
 </script>
 
 <style>
