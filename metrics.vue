@@ -20,10 +20,14 @@
           each month in months
             .result-month= `{{ upperAbbreviateMonth('${month}') }}`
 
-    .result-total Grand Total
+    .result-total.result-header-total Grand Total
 
   .result(v-for='result in results')
     .result-title {{ result.brand }}
+
+    .result-count(v-for='count in result[`${resultType}s`]') {{ `${count}${resultType === 'percent' && '%' || ''}` }}
+
+    .result-total {{ resultType === 'percent' ? `${result.total_percent}%` : result.total }}
 </template>
 
 <script>
@@ -49,8 +53,34 @@ export default {
   data: () => ({results: [], resultType: 'count'}),
 };
 
-function parseMetrics(resp) {
-  const results = resp;
+function parseMetrics(results) {
+  for(const result of results) {
+    Object.assign(result, {
+      counts: [
+        result.best_buy_202103,
+        result.best_buy_202104,
+        result.best_buy_202105,
+        result.home_depot_202103,
+        result.home_depot_202104,
+        result.home_depot_202105,
+        result.lowes_202103,
+        result.lowes_202104,
+        result.lowes_202105,
+      ],
+
+      percents: [
+        result.best_buy_202103_percent,
+        result.best_buy_202104_percent,
+        result.best_buy_202105_percent,
+        result.home_depot_202103_percent,
+        result.home_depot_202104_percent,
+        result.home_depot_202105_percent,
+        result.lowes_202103_percent,
+        result.lowes_202104_percent,
+        result.lowes_202105_percent,
+      ],
+    });
+  }
 
   return results;
 }
@@ -135,7 +165,8 @@ function capitalize(str) {
   &:last-child
     margin-bottom 0
 
-.result-data
+.result-count
+  flex-grow 1
   display flex
   align-items center
   justify-content center
@@ -173,9 +204,11 @@ function capitalize(str) {
 .result-total
   text-align center
   align-self stretch
-  border-left 1px solid currentColor
   width 150px
   display flex
   justify-content center
   align-items center
+
+.result-header-total
+  border-left 1px solid currentColor
 </style>
