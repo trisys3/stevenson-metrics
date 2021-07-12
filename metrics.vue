@@ -106,6 +106,7 @@ function capitalize(str) {
 .metrics
   padding-inline 5px
   padding-top 20px
+  padding-bottom 5px
 </style>
 
 <style lang="stylus" scoped>
