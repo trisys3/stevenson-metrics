@@ -182,13 +182,13 @@ function capitalize(str) {
 .result-store
   flex-grow 1
   align-self stretch
-  border-left 1px solid currentColor
+  border-left 1px solid #e6eef1
   display flex
   flex-direction column
 
 .result-store-title
   flex-grow 1
-  border-bottom 1px solid currentColor
+  border-bottom 1px solid #e6eef1
   display flex
   justify-content center
   align-items center
@@ -214,6 +214,6 @@ function capitalize(str) {
 
 .result-header-total
   margin-left 0
-  border-left 1px solid currentColor
+  border-left 1px solid #e6eef1
   justify-content center
 </style>
