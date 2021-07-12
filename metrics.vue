@@ -104,7 +104,7 @@ function capitalize(str) {
 
 <style lang="stylus">
 .metrics
-  padding-inline 5px
+  padding-inline 8px
   padding-top 20px
   padding-bottom 5px
 </style>
@@ -174,7 +174,7 @@ function capitalize(str) {
   justify-content center
 
 .result-title
-  padding-left 10px
+  padding-left 15px
   width 200px
   display flex
   align-items center
@@ -206,11 +206,14 @@ function capitalize(str) {
 .result-total
   text-align center
   align-self stretch
+  margin-right 15px
   width 150px
   display flex
-  justify-content center
+  justify-content flex-end
   align-items center
 
 .result-header-total
+  margin-left 0
   border-left 1px solid currentColor
+  justify-content center
 </style>
